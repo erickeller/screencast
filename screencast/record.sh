@@ -9,5 +9,7 @@ fi
 
 recordmydesktop --windowid `xwininfo | awk '/Window id:/ {print $4}'` -o ${OUTPUT}.ogv --delay ${RECORDING_DELAY} --no-sound &
 echo "stop recording:
+pause recording: CTRL+ALT+p
+stop recording: CTRL+ALT+s
 kill -s TERM $!"
 
