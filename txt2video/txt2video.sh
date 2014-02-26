@@ -9,17 +9,23 @@ $0 'hello world' 5
 "
 }
 
-if [ $# -ne 2 ]
+if [ $# -lt 2 ]
 then
   usage
   exit 1
 fi
 
+
 OUTPUT_TEXT=$1
 #OUTPUT_IMG=$(awk -F: '$0=$1' <<<"${OUTPUT_TEXT}")
 OUTPUT_NAME=`echo ${OUTPUT_TEXT} | cut -c 1-6 | tr ' ' '_'`
 OUTPUT_IMG="${OUTPUT_NAME}.png"
-OUTPUT_VIDEO="${OUTPUT_NAME}.avi"
+if [ $# -eq 3 ]
+then
+  OUTPUT_VIDEO=${3}.avi
+else
+  OUTPUT_VIDEO="${OUTPUT_NAME}.avi"
+fi
 VIDEO_LENGTH=$2
 RATIO=1280x720
 
