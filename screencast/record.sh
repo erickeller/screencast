@@ -4,7 +4,7 @@ if [ $# -eq 1 ]
 then
   OUTPUT=${1}
 else
-  OUTPUT=test
+  OUTPUT=mydesktop
 fi
 
 recordmydesktop --windowid `xwininfo | awk '/Window id:/ {print $4}'` -o ${OUTPUT}.ogv --delay ${RECORDING_DELAY} --no-sound &
